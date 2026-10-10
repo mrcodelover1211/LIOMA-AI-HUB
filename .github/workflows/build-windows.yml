@@ -14,15 +14,19 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Check out source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
+          package-manager-cache: false
 
       - name: Install dependencies
         run: npm install
+
+      - name: Check for critical dependency vulnerabilities
+        run: npm audit --audit-level=critical
 
       - name: Validate Electron source
         run: npm run check
@@ -31,7 +35,7 @@ jobs:
         run: npm run dist
 
       - name: Upload installer
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: Lioma-Agent-Hub-Windows-x64
           path: release/*.exe
