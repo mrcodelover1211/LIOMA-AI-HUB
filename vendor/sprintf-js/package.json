@@ -1,0 +1,7 @@
+{
+  "name": "sprintf-js",
+  "version": "1.1.3-lioma.1",
+  "description": "Lioma-maintained security-patched fork of sprintf-js 1.1.3",
+  "main": "src/sprintf.js",
+  "license": "BSD-3-Clause"
+}
