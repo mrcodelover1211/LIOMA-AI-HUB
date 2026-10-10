@@ -25,9 +25,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Apply compatible dependency security fixes
-        run: npm audit fix
-
       - name: Block high and critical dependency vulnerabilities
         run: npm audit --audit-level=high
 
