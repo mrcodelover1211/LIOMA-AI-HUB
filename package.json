@@ -9,7 +9,7 @@
     "build": "vite build",
     "start": "electron .",
     "dist": "npm run build && electron-builder --win nsis --x64 --publish never",
-    "check": "node --check electron/main.cjs && node --check electron/preload.cjs"
+    "check": "node --check electron/main.cjs && node --check electron/preload.cjs && node --check vendor/sprintf-js/src/sprintf.js"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",
@@ -55,5 +55,8 @@
   },
   "engines": {
     "node": ">=24"
+  },
+  "overrides": {
+    "sprintf-js": "file:vendor/sprintf-js"
   }
 }
